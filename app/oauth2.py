@@ -15,14 +15,14 @@ ACCESS_TOKEN_EXPIRE_MINUTES = settings.access_token_expire_minutes
 
 def create_access_token(data: dict):
     
-    #create copy of data
+    # create copy of data
     to_encode = data.copy()
 
-    #Calculate expiration time, add expiration time to payload data
+    # Calculate expiration time, add expiration time to payload data
     expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     to_encode.update({"exp": expire})
 
-    #create jwt token (payload, secret key, algorithm)
+    # create jwt token (payload, secret key, algorithm)
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 
     return encoded_jwt

@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Response, status, HTTPException, Depends, APIRouter
 from sqlalchemy.orm import Session
 from typing import List, Optional
-from sqlalchemy import func #required for COUNT() function in query
+from sqlalchemy import func # required for COUNT() function in query
 from .. import models, oauth2, schemas, database
 
 

@@ -18,7 +18,7 @@ class Post(Base):
     published = Column(Boolean, server_default="TRUE", nullable=False)
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=text('now()'))
     owner_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
-    #owner property associates the post with the owner by. "User" class is passed into sqlalchemy relationship method
+    # owner property associates the post with the owner by. "User" class is passed into sqlalchemy relationship method
     owner = relationship("User")
 
 class User(Base):
