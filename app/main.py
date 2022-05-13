@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse
 
 from .routers import post, user, auth, vote
 from .config import settings
@@ -30,6 +31,23 @@ app.include_router(user.router)
 app.include_router(auth.router)
 app.include_router(vote.router)
 
-@app.get("/")
+
+def generate_html_response():
+    html_content = """
+    <html>
+        <head>
+            <title>FastAPI Project</title>
+        </head>
+        <body>
+            <h1>Welcome to my API</h1>
+            <h2>Visit www.harvinkaura.xyz/docs to test out my application</h2>
+        </body>
+    </html>
+    """
+    return HTMLResponse(content=html_content, status_code=200)
+
+
+@app.get("/", response_class=HTMLResponse)
 def root():
-    return {"message": "welcome to my API"}
+    return generate_html_response()
+    #return {"message": "welcome to my API"}
