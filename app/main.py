@@ -40,7 +40,7 @@ def generate_html_response():
         </head>
         <body>
             <h1>Welcome to my API</h1>
-            <h2><a href="https://www.harvinkaura.xyz/docs">Click Here</a> to test out my application!</h2>
+            <h2><a href="https://www.harvinkaura.xyz/docs">Click Here</a> to test out my application, or <a href="https://github.com/HarvinK/fastapi-project">Click Here</a> to view the source code.</h2>
         </body>
     </html>
     """
